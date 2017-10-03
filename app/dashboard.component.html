@@ -1,0 +1,28 @@
+<h3>Environments</h3>
+<div class="grid grid-pad">
+    <div [ngGrid]="{
+    'resizable': true,
+    'draggable': true,
+    'auto_resize': true,
+    'col_width': 250,
+    'row_height': 190
+    }">
+        <div *ngFor="let dev of devs" class="col-1-4">
+            <div class="module dev grid-item" [ngGridItem]="{'col':dev.id,'dragHandle': 'header'}">
+                <header>
+                    <span>{{dev.owner}}</span>
+                    <ul>
+                        <li><strong>Servicelayer</strong>: {{dev.servicelayer}}</li>
+                        <li><strong>Middleware</strong>: {{dev.middleware}}</li>
+                        <li><strong>Clientengine</strong>: {{dev.clientengine}}</li>
+                        <li><strong>Paymentengine</strong>: {{dev.paymentengine}}</li>
+                        <li><strong>Atlas</strong>: {{dev.atlas}}</li>
+                        <li><strong>HLGroup</strong>: {{dev.hlgroup}}</li>
+                    </ul>
+                </header>
+                <button (click)="gotoDetail(dev)">Details</button>
+                <!--content in here -->
+            </div>
+        </div>
+    </div>
+</div>

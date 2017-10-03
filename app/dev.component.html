@@ -1,0 +1,17 @@
+<h2>My dev boxes</h2>
+<ul class="devs">
+    <li *ngFor="let dev of devs"
+        [class.selected]="dev === selectedDev"
+        (click)="onSelect(dev)">
+        <span class="number">dev-{{dev.id}}</span> {{dev.owner}}
+    </li>
+    <div *ngIf="addingDev">
+        <dev-detail (close)="close($event)"></dev-detail>
+    </div>
+</ul>
+<div *ngIf="selectedDev">
+    <h2>
+        {{selectedDev.owner | uppercase}} has this box!
+    </h2>
+    <button (click)="goToDetail()">View Details</button>
+</div>
